@@ -1,0 +1,28 @@
+:root {
+  --color-background: #0f172b;
+  --text1-color: #f3f4f6;
+  --text2-color: #90a1b9;
+  --text3-color: #ffffff;
+  --background1-color: #1d293d;
+  --border1-color: #1d293d;
+  --border2-color: #314158;
+  --border3-color: #2563eb;
+  --border4-color: #333d54;
+  --placeholder-color: #9ca3af;
+  --input-border-color: #9ca3af;
+  --button-color: #155dfc;
+  --status-button-active-background: #314158;
+  --delete-button-color: #ff6467;
+  --todo-item-text-color: #cad5e2;
+  --warning-color: #e2cb8c;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-background);
+  color: var(--text1-color);
+}

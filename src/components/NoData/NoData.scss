@@ -1,0 +1,16 @@
+.no-data {
+  padding: 10px;
+  margin: 30px 0;
+  border: 2px solid var(--border2-color);
+  border-radius: 10px;
+  text-align: center;
+
+  .icon {
+    font-size: 50px;
+  }
+
+  .text {
+    font-size: 14px;
+    color: var(--text2-color);
+  }
+}
