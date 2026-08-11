@@ -1,4 +1,4 @@
-import './noData.scss';
+import './NoData.scss';
 
 interface NoDataProps {
   text: string;
