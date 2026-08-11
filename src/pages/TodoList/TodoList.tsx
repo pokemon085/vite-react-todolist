@@ -8,8 +8,6 @@ import Search from '../../components/Search/Search';
 import NotifyPopup from '../../components/NotifyPopup/NotifyPopup';
 import type { NotifyPopupProps } from '../../type/NotifyPopup';
 
-
-
 export default function TodoList() {
   // 切換狀態列表
   const taskStatus = [
@@ -71,19 +69,19 @@ export default function TodoList() {
       setNotifyPopup({
         message: '任務內容不能為空白！',
         onClose: () => setNotifyPopup(null),
-        icon: '⚠️'
+        icon: '⚠️',
       });
       return;
     }
 
-    const isSame = todos.some(todo => todo.text === newItem);    
+    const isSame = todos.some(todo => todo.text === newItem);
     if (isSame) {
       setNotifyPopup({
         message: '此任務已存在，請重新輸入！',
         onClose: () => setNotifyPopup(null),
-        icon: '⚠️'
+        icon: '⚠️',
       });
-      return; 
+      return;
     }
 
     const newTodo: TodoItem = {
@@ -165,9 +163,7 @@ export default function TodoList() {
           </div>
 
           <div className="todo-items-wrapper">
-            {displayTodos.length === 0 && (
-              <NoData text="暫無數據" icon="📂" />
-            )}
+            {displayTodos.length === 0 && <NoData text="暫無數據" icon="📂" />}
             {displayTodos.length > 0 &&
               displayTodos.map(todo => (
                 <div key={todo.id} className="todo-item">
