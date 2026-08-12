@@ -132,6 +132,7 @@
     min-width: 0;
     color: var(--text1-color);
     font-size: 16px;
+    align-self: center;
     transition: all 0.3s ease;
 
     &.completed {
@@ -151,6 +152,7 @@
     cursor: pointer;
     padding: 0 10px;
     min-width: 40px;
+    align-self: center;
 
     &:hover {
       color: var(--delete-button-color);
