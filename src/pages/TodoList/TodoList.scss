@@ -112,19 +112,20 @@
   display: flex;
   border: 1px solid var(--border2-color);
   border-radius: 10px;
-  align-items: center;
+  align-items: flex-start;
   padding: 10px;
   color: var(--todo-item-text-color);
   word-break: break-all;
-  flex-wrap: wrap;
 
   .todo-checkbox {
     cursor: pointer;
     width: 18px;
     height: 18px;
     margin-right: 10px;
+    margin-top: 2px;
     min-width: 18px;
     min-height: 18px;
+    flex-shrink: 0;
   }
 
   .todo-item-text {
@@ -133,6 +134,7 @@
     color: var(--text1-color);
     font-size: 16px;
     transition: all 0.3s ease;
+    white-space: pre-wrap;
 
     &.completed {
       text-decoration: line-through;
@@ -151,6 +153,7 @@
     cursor: pointer;
     padding: 0 10px;
     min-width: 40px;
+    flex-shrink: 0;
 
     &:hover {
       color: var(--delete-button-color);
