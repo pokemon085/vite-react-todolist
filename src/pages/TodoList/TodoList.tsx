@@ -167,12 +167,15 @@ export default function TodoList() {
             {displayTodos.length > 0 &&
               displayTodos.map(todo => (
                 <div key={todo.id} className="todo-item">
-                  <input
-                    type="checkbox"
-                    className="todo-checkbox"
-                    checked={todo.status === TodoStatus.Completed}
-                    onChange={() => toggleTodoStatus(todo.id)}
-                  />
+                  <div className="checkbox-wrap">
+                    <input
+                      type="checkbox"
+                      className="todo-checkbox"
+                      checked={todo.status === TodoStatus.Completed}
+                      onChange={() => toggleTodoStatus(todo.id)}
+                    />
+                  </div>
+
                   <div
                     className={`todo-item-text ${todo.status === TodoStatus.Completed ? 'completed' : ''}`}
                   >

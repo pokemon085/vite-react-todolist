@@ -112,29 +112,35 @@
   display: flex;
   border: 1px solid var(--border2-color);
   border-radius: 10px;
-  align-items: flex-start;
+  align-items: center;
   padding: 10px;
   color: var(--todo-item-text-color);
   word-break: break-all;
+  min-height: 20px;
+  box-sizing: border-box;
 
-  .todo-checkbox {
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
-    margin-top: 2px;
-    min-width: 18px;
-    min-height: 18px;
-    flex-shrink: 0;
+  .checkbox-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+
+    .todo-checkbox {
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
   }
 
   .todo-item-text {
     flex: 1;
-    min-width: 0;
     color: var(--text1-color);
     font-size: 16px;
     transition: all 0.3s ease;
     white-space: pre-wrap;
+    margin-left: 10px;
 
     &.completed {
       text-decoration: line-through;
@@ -154,6 +160,8 @@
     padding: 0 10px;
     min-width: 40px;
     flex-shrink: 0;
+    align-self: flex-start;
+    min-height: 22px;
 
     &:hover {
       color: var(--delete-button-color);
