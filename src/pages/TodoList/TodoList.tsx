@@ -1,4 +1,4 @@
-import './TodoList.scss';
+import styles from './TodoList.module.scss';
 import PieChart from '../../components/PieChart/PieChart';
 import NoData from '../../components/NoData/NoData';
 import Search from '../../components/Search/Search';
@@ -26,29 +26,29 @@ export default function TodoList() {
 
   return (
     <>
-      <div className="todo-list-wrap">
-        <div className="todo-list card">
-          <div className="title">任務工作台</div>
-          <div className="input-wrap">
+      <div className={styles['todo-list-wrap']}>
+        <div className={`${styles['todo-list']} ${styles.card}`}>
+          <div className={styles.title}>任務工作台</div>
+          <div className={styles['input-wrap']}>
             <input
               type="text"
               name="inputTask"
               onChange={e => setNewItem(e.target.value)}
-              className="todo-input"
+              className={styles['todo-input']}
               value={newItem}
               placeholder="添加新任務..."
             />
-            <button className="todo-add-btn" onClick={handleAddTodo}>
+            <button className={styles['todo-add-btn']} onClick={handleAddTodo}>
               添加
             </button>
           </div>
 
-          <div className="status-list-and-search">
-            <div className="task-status-wrap">
+          <div className={styles['status-list-and-search']}>
+            <div className={styles['task-status-wrap']}>
               {taskStatus.map(status => (
                 <button
                   key={status.key}
-                  className={`task-btn ${filterStatus === status.key ? 'active' : ''}`}
+                  className={`${styles['task-btn']} ${filterStatus === status.key ? styles.active : ''}`}
                   onClick={() => handleFilterStatus(status.key)}
                 >
                   {status.name}
@@ -62,27 +62,27 @@ export default function TodoList() {
             />
           </div>
 
-          <div className="todo-items-wrapper">
+          <div className={styles['todo-items-wrapper']}>
             {displayTodos.length === 0 && <NoData text="暫無數據" icon="📂" />}
             {displayTodos.length > 0 &&
               displayTodos.map(todo => (
-                <div key={todo.id} className="todo-item">
-                  <div className="checkbox-wrap">
+                <div key={todo.id} className={styles['todo-item']}>
+                  <div className={styles['checkbox-wrap']}>
                     <input
                       type="checkbox"
-                      className="todo-checkbox"
+                      className={styles['todo-checkbox']}
                       checked={todo.status === TodoStatus.Completed}
                       onChange={() => toggleTodoStatus(todo.id)}
                     />
                   </div>
 
                   <div
-                    className={`todo-item-text ${todo.status === TodoStatus.Completed ? 'completed' : ''}`}
+                    className={`${styles['todo-item-text']} ${todo.status === TodoStatus.Completed ? styles.completed : ''}`}
                   >
                     {todo.text}
                   </div>
                   <div
-                    className="delete-button"
+                    className={styles['delete-button']}
                     onClick={() => handleDeleteTodo(todo.id)}
                   >
                     删除
@@ -93,24 +93,24 @@ export default function TodoList() {
         </div>
 
         {/* 待處理 */}
-        <div className="processed card">
-          <div className="left">
-            <div className="title">待處理任務</div>
-            <div className="count">
+        <div className={`${styles.processed} ${styles.card}`}>
+          <div className={styles.left}>
+            <div className={styles.title}>待處理任務</div>
+            <div className={styles.count}>
               {
                 todos.filter(todo => todo.status === TodoStatus.InProgress)
                   .length
               }
-              <div className="count-text">件</div>
+              <div className={styles['count-text']}>件</div>
             </div>
           </div>
-          <div className="right">⚠️</div>
+          <div className={styles.right}>⚠️</div>
         </div>
 
         {/* 生產力分析 */}
-        <div className="productivity card">
-          <div className="title">生產力分析</div>
-          <div className="tip">即時追蹤任務完成狀況</div>
+        <div className={`${styles.productivity} ${styles.card}`}>
+          <div className={styles.title}>生產力分析</div>
+          <div className={styles.tip}>即時追蹤任務完成狀況</div>
           {todos.length > 0 ? (
             <PieChart data={pieChartData} />
           ) : (

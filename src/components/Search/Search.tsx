@@ -1,4 +1,4 @@
-import './Search.scss';
+import styles from './Search.module.scss';
 
 interface SearchProps {
   value: string;
@@ -13,12 +13,12 @@ export default function Search({
 }: SearchProps) {
   return (
     <>
-      <div className="search-wrap">
-        <span className="search-icon">🔍</span>
+      <div className={styles['search-wrap']}>
+        <span className={styles['search-icon']}>🔍</span>
         <input
           type="text"
           name="search"
-          className="search-input"
+          className={styles['search-input']}
           placeholder={placeholder}
           value={value}
           onChange={e => onChange(e.target.value)}
@@ -26,7 +26,7 @@ export default function Search({
         {value && (
           <button
             type="button"
-            className="clear-btn"
+            className={styles['clear-btn']}
             onClick={() => onChange('')}
             aria-label="清除搜尋內容"
           >
